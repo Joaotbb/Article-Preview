@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+
+     <style>
+            .hide {opacity: 0;transition: opacity 0.3s, visibility 0.3s;}
+            .reveal2 {opacity: 1; transition: opacity 0.3s, visibility 0.3s;}
+    </style>
+    
     <!--    SCIPT FOR FONT -->
     <script>
         tailwind.config = {
@@ -33,13 +39,11 @@
                  <img class="h-48 w-full object-cover md:h-full" src="/images/drawers.jpg">
             </div>
             <div class="p-6">
-                                     <!--1st title-->
                 <h1 class="p-2 font-bold text-gray-500 font-sans">
                     Shift the overall look and feel by
                     adding these wonderful touches
                     to furniture in your home
                 </h1>
-                <!--2nd title-->
                 <h2 class="text-sm text-gray-400 font-sans">
                     Ever been in a room and felt like
                     something was missing? Perhaps it felt
@@ -47,9 +51,10 @@
                     simple tips to help you make any room feel
                     complete.
                 </h2>
-                <!--Share button-->
-                <div class="flex justify-between items-center">
+
+                <div class="hidden md:flex justify-between items-center">
                     <div class="flex mt-2">
+                        <!-- Image, name and social icons -->
                         <img
                             src="images/avatar-michelle.jpg"
                             class="h-10 w-10 rounded-full mr-2"
@@ -66,18 +71,41 @@
                             </p>
                         </div>
                     </div>
-                        <div class="rounded-full bg-gray-200 w-8 h-8 flex items-center justify-center object-bottom">
-                            <img
-                                src="images/icon-share.svg"
-                                class="h-4"
-                            />
-                        </div>
+                    <!--Share button-->
+                    <div id="clicar" class="rounded-full bg-gray-200 w-8 h-8 flex items-center justify-center object-bottom">
+                        <img
+                            src="images/icon-share.svg"
+                            class="h-4"
+                        />
                     </div>
                 </div>
+            </div>
+        </div>
+
+
+        <div class="relative bg-gray-600 flex p-6 justify-between w-full md:hidden">
+            <p class="text-xs text-gray-400 ">
+                S H A R E
+            </p>
+            <div>
+                <ul class="flex space-x-4">
+                    <li><img class="h-4" src="./images/icon-facebook.svg" alt="" /></li>
+                    <li><img class="h-4" src="./images/icon-pinterest.svg" alt="" /></li>
+                    <li><img class="h-4" src="./images/icon-twitter.svg" alt="" /></li>
+                    <li>
+                        <div class="rounded-full bg-gray-200 w-5 h-5 flex items-center justify-center object-bottom">
+                            <img
+                                    src="images/icon-share.svg"
+                                    class="h-4"
+                            />
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <div class="absolute bottom-30 right-12 hidden md:block" id="">
+    <div class="hide absolute bottom-30 right-12 hidden md:block" id="btn1">
 
         <div>
             <div class="relative max-w-xs py-4 px-8 space-x-4 mx-auto bg-gray-600 rounded-xl flex justify-center">
@@ -94,7 +122,7 @@
             </div>
         </div>
 
-        <div class="flex justify-center ">
+        <div class="flex justify-center">
             <div class="w-16 overflow-hidden inline-block flex justify-center">
                 <div class="h-6 w-6 bg-gray-600 -rotate-45 transform origin-top-left"></div>
             </div>
@@ -102,28 +130,18 @@
 
     </div>
 
-
-
 </div>
 
-<!-- BUTTON -->
-<div class="container">
-<div class="max-w-xs py-4 space-x-4 mx-auto bg-gray-600 rounded flex justify-center">
-    <p class="text-sm text-gray-400 ">
-        S H A R E
-    </p>
-    <div>
-        <ul class="flex space-x-4">
-            <li><img src="./images/icon-facebook.svg" alt="" /></li>
-            <li><img src="./images/icon-pinterest.svg" alt="" /></li>
-            <li><img src="./images/icon-twitter.svg" alt="" /></li>
-        </ul>
-    </div>
-</div>
-</div>
+<script>
 
-<div class="w-16 overflow-hidden inline-block">
-    <div class="h-4 w-4 bg-gray-600 -rotate-45 transform origin-top-left"></div>
-</div>
+let clicar = document.querySelector("#clicar");
+let btn1 = document.querySelector("#btn1");
+
+clicar.addEventListener("click", () => {
+btn1.classList.toggle("reveal2");
+});
+
+</script>
+
 </body>
 </html>
