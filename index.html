@@ -30,7 +30,7 @@
 </head>
 
 <body>
-<!-- Div-Box-->
+
 <div class="container relative max-w-4xl mx-auto h-screen flex justify-center items-center p-6">
 
     <div class="relative max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
@@ -52,7 +52,7 @@
                     complete.
                 </h2>
 
-                <div class="hidden md:flex justify-between items-center">
+                <div class="flex justify-between items-center" id="banner-bottom">
                     <div class="flex mt-2">
                         <!-- Image, name and social icons -->
                         <img
@@ -72,18 +72,26 @@
                         </div>
                     </div>
                     <!--Share button-->
-                    <div id="clicar" class="rounded-full bg-gray-200 w-8 h-8 flex items-center justify-center object-bottom">
+                    <div id="clicar" class="rounded-full bg-gray-200 w-8 h-8 hidden md:flex items-center justify-center object-bottom">
                         <img
                             src="images/icon-share.svg"
                             class="h-4"
                         />
                     </div>
+                    <!--Share button Mobile-->
+                    <div id="clicar-mobile" class="md:hidden rounded-full bg-gray-700 w-8 h-8 flex items-center justify-center object-bottom">
+                        <img
+                                src="images/icon-share.svg"
+                                class="h-4"
+                        />
+                    </div>
+
                 </div>
             </div>
         </div>
 
 
-        <div class="relative bg-gray-600 flex p-6 justify-between w-full md:hidden">
+        <div class="relative bg-gray-700 flex p-6 justify-between w-full hidden" id="bottom-banner">
             <p class="text-xs text-gray-400 ">
                 S H A R E
             </p>
@@ -137,8 +145,23 @@
 let clicar = document.querySelector("#clicar");
 let btn1 = document.querySelector("#btn1");
 
+//Mobile
+let clicarMobile = document.querySelector("#clicar-mobile");
+let bannerBottomGray = document.querySelector("#bottom-banner");
+let bannerBottomWhite = document.querySelector("#banner-bottom");
+
 clicar.addEventListener("click", () => {
-btn1.classList.toggle("reveal2");
+    btn1.classList.toggle("reveal2");
+});
+
+// nao vale testar isto em mobile e depois meter desktop.
+// é obvio que nao vai funcionar, uma vez que nao estamos a avaliar o tamanho do ecra a cada segundo
+// pao pao queijo queijo. mobile é mobile, desktop é desktop
+// e o joao é palhaço
+
+clicarMobile.addEventListener("click", () => {
+    bannerBottomGray.classList.remove("hidden");
+    bannerBottomWhite.classList.toggle("hidden");
 });
 
 </script>
