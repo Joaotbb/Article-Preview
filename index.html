@@ -101,7 +101,7 @@
                     <li><img class="h-4" src="./images/icon-pinterest.svg" alt="" /></li>
                     <li><img class="h-4" src="./images/icon-twitter.svg" alt="" /></li>
                     <li>
-                        <div class="rounded-full bg-gray-200 w-5 h-5 flex items-center justify-center object-bottom">
+                        <div id="clicar-back-mobile" class="rounded-full bg-gray-200 w-5 h-5 flex items-center justify-center object-bottom">
                             <img
                                     src="images/icon-share.svg"
                                     class="h-4"
@@ -149,20 +149,22 @@ let btn1 = document.querySelector("#btn1");
 let clicarMobile = document.querySelector("#clicar-mobile");
 let bannerBottomGray = document.querySelector("#bottom-banner");
 let bannerBottomWhite = document.querySelector("#banner-bottom");
+let clicarBack = document.querySelector("#clicar-back-mobile");
 
-clicar.addEventListener("click", () => {
+document.querySelector("#clicar").addEventListener("click", () => {
     btn1.classList.toggle("reveal2");
 });
-
-// nao vale testar isto em mobile e depois meter desktop.
-// é obvio que nao vai funcionar, uma vez que nao estamos a avaliar o tamanho do ecra a cada segundo
-// pao pao queijo queijo. mobile é mobile, desktop é desktop
-// e o joao é palhaço
 
 clicarMobile.addEventListener("click", () => {
     bannerBottomGray.classList.remove("hidden");
     bannerBottomWhite.classList.toggle("hidden");
 });
+
+clicarBack.addEventListener("click", () => {
+    bannerBottomGray.classList.toggle("hidden");
+    bannerBottomWhite.classList.remove("hidden");
+});
+
 
 </script>
 
